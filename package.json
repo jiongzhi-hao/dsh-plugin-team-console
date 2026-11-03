@@ -1,0 +1,68 @@
+{
+  "name": "@jiongzhi-hao/dsh-plugin-team-console",
+  "version": "0.5.0",
+  "description": "固定四人以内的智能体团队：宿主管理、明确模型、分阶段任务、群聊与完整停止。A host-owned fixed-roster agent team console for DeepSeek Harness.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.1-rc.2",
+    "react": "^18.2.0"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/manager.js",
+    "lib/chat-bridge.js",
+    "lib/presets.js",
+    "lib/metrics.js",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/manager.test.mjs test/chat-bridge.test.mjs test/client-status.test.mjs test/naming.test.mjs test/presets-metrics.test.mjs",
+    "test:smoke": "node test/smoke.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "agent",
+    "multi-agent",
+    "team",
+    "orchestration",
+    "group-chat",
+    "llm"
+  ],
+  "author": "jiongzhi-hao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiongzhi-hao/dsh-plugin-team-console.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jiongzhi-hao/dsh-plugin-team-console/issues"
+  },
+  "homepage": "https://github.com/jiongzhi-hao/dsh-plugin-team-console#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

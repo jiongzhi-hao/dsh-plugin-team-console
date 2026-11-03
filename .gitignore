@@ -1,0 +1,21 @@
+# 本机运行状态：包含会话 ID、成员配置、用户任务原文与成员回答，绝不能提交
+state/
+
+# 依赖与日志
+node_modules/
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 编辑器与系统
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# 测试与构建产物
+coverage/
+dist/
+.tmp/

@@ -1,0 +1,32 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['20', '22', '24']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: 确认 state/ 未被提交
+        run: |
+          if [ -d state ]; then
+            echo "::error::state/ 目录不应出现在版本库中（含会话 ID 与用户内容）"
+            exit 1
+          fi
+      - name: 运行测试
+        run: npm test

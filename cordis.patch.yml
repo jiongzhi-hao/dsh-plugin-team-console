@@ -1,0 +1,5 @@
+# Team Console --- insert the browser row that owns the session-page team switch and the group chat.
+
+- insert:
+    - id: ui-team-console
+      name: '@jiongzhi-hao/dsh-plugin-team-console'
